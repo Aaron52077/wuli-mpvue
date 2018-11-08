@@ -6,6 +6,7 @@
         <div class="wuli-panel">
             <div class="wuli-btns">
                 <wp-button type="primary" size="small" openType="getUserInfo" @getuserinfo="getUersInfo" round>获取用户信息</wp-button>
+                <wp-button type="primary" size="small" @click="clickHandle" round>Easy Mock</wp-button>
             </div>
         </div>
         <template v-if="userInfo != null">
@@ -53,8 +54,10 @@ export default {
             }else {
                 this.$mptoast('您取消了授权，获取失败', 'error', 1500)
             }
-            
-        }
+        },
+        clickHandle() {
+            this.$store.dispatch('postRequest')
+        },
     },
     components: {
         mptoast,

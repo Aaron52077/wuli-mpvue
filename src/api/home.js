@@ -1,11 +1,7 @@
-import { wxPromise, wxTokenRequest } from '@/utils/request'
+import { wxPromise } from '@/utils/request'
 
-// use用法
-// 登录接口 
-export const postonLogin = (params) => {
-    return wxPromise(params, '/api/fc/auth/login');
+// 基于 https://www.easy-mock.com 用法
+export const wxRequest = (params) => {
+    return wxPromise(params, '/mock')
 }
 
-export const GetDetail = (params) => {
-    return wxTokenRequest(params, '/api/Client/Home/GetDetail');
-}

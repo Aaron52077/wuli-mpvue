@@ -1,7 +1,7 @@
 // app 模块
 import { SET_TOKEN } from '../mutation-types'
 import { showTextModal } from '@/utils'
-import { postonLogin } from '@/api/home'
+import { wxRequest } from '@/api/home'
 
 const app = {
     state: {
@@ -13,20 +13,17 @@ const app = {
         },
     },
     actions: {
-        /**
-        * 用户登录
-        */
-       async userLogin({ commit }, params) {
-            const res = await postonLogin({
+       async postRequest({ commit }, params) {
+            const res = await wxRequest({
                     method: "POST",
                     data: params
                 }).then(res => {
-                    if (res && res.token) {
-                        showTextModal(res.Info)
+                    if (res.success && res.token) {
+                        showTextModal(res.info)
                         commit(SET_TOKEN, res.token)
                         wx.setStorageSync(SET_TOKEN, res.token)
                     } else {
-                        showTextModal(res.Info)
+                        showTextModal('请求失败')
                     }
                 }).catch(err => {
 

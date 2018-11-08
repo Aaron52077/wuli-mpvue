@@ -2,7 +2,7 @@
 import { showTextModal } from './index'
 
 const BASE_API = process.env.BASE_API;
-const uploadPath = `${BASE_API}/api/upload/picture`;
+const uploadPath = `${BASE_API}/api/upload`;
 
 // 常用用法
 export const wxPromise = (params, url) => {
@@ -15,8 +15,8 @@ export const wxPromise = (params, url) => {
             header: {
                 "content-type": "application/json",
                 'timestamp': Date.parse(new Date()) / 1000,
-                'signature': "fcsaas_lee",
-                'fc_port': 'fc_vue_sys'
+                'signature': "Aaron_chao",
+                'fc_port': 'wuli_mpvue'
             },
             success(res) {
                 wx.hideNavigationBarLoading()
@@ -31,19 +31,19 @@ export const wxPromise = (params, url) => {
     });
 };
 
-// 用户登录 token验证
+// 登录token请求 wxTokenRequest
 export const wxTokenRequest = (params, url) => {
     wx.showNavigationBarLoading()
     var token = wx.getStorageSync('SET_TOKEN');
-    
+
     return new Promise((resove, reject) => {
         // 未登录
-        if(!token) {
+        if (!token) {
             showTextModal('未登录,请求失败！')
             setTimeout(() => {
                 wx.hideNavigationBarLoading()
             }, 500)
-        }else {
+        } else {
             wx.request({
                 url: BASE_API + url,
                 method: params.method || 'GET',
@@ -51,9 +51,9 @@ export const wxTokenRequest = (params, url) => {
                 header: {
                     "content-type": "application/json",
                     'timestamp': Date.parse(new Date()) / 1000,
-                    'signature': "fcsaas_lee",
                     'Authorization': `Bearer ${token}`,
-                    'fc_port': 'fc_vue_sys'
+                    'signature': "Aaron_chao",
+                    'fc_port': 'wuli_mpvue'
                 },
                 success(res) {
                     wx.hideNavigationBarLoading()
