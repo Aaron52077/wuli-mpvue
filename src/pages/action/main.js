@@ -6,7 +6,7 @@ app.$mount()
 
 export default {
     config: {
-        navigationBarTitleText: '网络请求 Request'
+        navigationBarTitleText: '行动按钮 Actionsheet'
     }
 }
 

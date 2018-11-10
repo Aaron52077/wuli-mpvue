@@ -19,5 +19,18 @@ export default {
                 path: '/pages/switch/main'
             }
         ]
+    },
+    action: {
+        title: '操作反馈',
+        content: [
+            {
+                name: 'Popup 弹出层',
+                path: '/pages/popup/main'
+            },
+            {
+                name: 'Action 上拉菜单',
+                path: '/pages/action/main'
+            }
+        ]
     }
 };

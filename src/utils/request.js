@@ -16,7 +16,7 @@ export const wxPromise = (params, url) => {
                 "content-type": "application/json",
                 'timestamp': Date.parse(new Date()) / 1000,
                 'signature': "Aaron_chao",
-                'fc_port': 'wuli_mpvue'
+                'port': 'wuli_mpvue'
             },
             success(res) {
                 wx.hideNavigationBarLoading()
@@ -53,7 +53,7 @@ export const wxTokenRequest = (params, url) => {
                     'timestamp': Date.parse(new Date()) / 1000,
                     'Authorization': `Bearer ${token}`,
                     'signature': "Aaron_chao",
-                    'fc_port': 'wuli_mpvue'
+                    'port': 'wuli_mpvue'
                 },
                 success(res) {
                     wx.hideNavigationBarLoading()
